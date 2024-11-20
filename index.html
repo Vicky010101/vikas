@@ -1,0 +1,455 @@
+<html><head><base href="/" />
+<title>Travel India - Book Your Dream Adventure</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --primary: #ff5722;
+  --secondary: #ffc107;
+  --dark: #333;
+  --light: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da') center/cover;
+  min-height: 100vh;
+  color: var(--light);
+}
+
+.navbar {
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.hero {
+  text-align: center;
+  padding: 10% 5%;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: var(--light);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+}
+
+.destinations {
+  padding: 5rem 5%;
+  background: #f5f5f5;
+}
+
+.destinations h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.destination-card {
+  background: var(--light);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.price {
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.book-now {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: var(--light);
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating-element {
+  animation: float 3s ease-in-out infinite;
+}
+
+.booking-section {
+  padding: 5rem 5%;
+  background: var(--light);
+}
+
+.booking-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: var(--light);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.3s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+}
+
+.transport-options {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.transport-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 120px;
+}
+
+.transport-btn:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.transport-btn.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.transport-btn svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.transport-btn.active svg {
+  fill: white;  
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <nav class="navbar">
+    <div class="logo">Travel India</div>
+    <div class="nav-links">
+      <a href="https://travelindia.com/destinations">Destinations</a>
+      <a href="https://travelindia.com/packages">Packages</a>
+      <a href="https://travelindia.com/about">About</a>
+      <a href="https://travelindia.com/contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1 class="floating-element">Discover Incredible India</h1>
+    <p>Experience the magic of ancient traditions meets modern charm</p>
+    <button class="cta-btn">Start Your Journey</button>
+  </div>
+</header>
+
+<section class="destinations">
+  <h2>Popular Destinations</h2>
+  <div class="destination-grid">
+    <div class="destination-card">
+      <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da')"></div>
+      <div class="card-content">
+        <h3>Taj Mahal, Agra</h3>
+        <p>Experience the marvel of eternal love</p>
+        <p class="price">From $299</p>
+        <a href="https://travelindia.com/book/taj-mahal" class="book-now">Book Now</a>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1514222134-b57cbb8ce073')"></div>
+      <div class="card-content">
+        <h3>Kerala Backwaters</h3>
+        <p>Serene houseboat adventures</p>
+        <p class="price">From $399</p>
+        <a href="https://travelindia.com/book/kerala" class="book-now">Book Now</a>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1477587458883-47145ed94245')"></div>
+      <div class="card-content">
+        <h3>Rajasthan Palaces</h3>
+        <p>Royal heritage experience</p>
+        <p class="price">From $499</p>
+        <a href="https://travelindia.com/book/rajasthan" class="book-now">Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking-section">
+  <div class="booking-form">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Book Your Trip</h2>
+    <form id="bookingForm">
+      <div class="transport-options">
+        <button type="button" class="transport-btn active" data-transport="flight">
+          <svg viewBox="0 0 24 24">
+            <path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z"/>
+          </svg>
+          Flight
+        </button>
+        <button type="button" class="transport-btn" data-transport="train">
+          <svg viewBox="0 0 24 24">
+            <path d="M18,10H6V5H18M12,17C10.89,17 10,16.1 10,15C10,13.89 10.89,13 12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17M4,15.5A3.5,3.5 0 0,0 7.5,19L6,20.5V21H18V20.5L16.5,19A3.5,3.5 0 0,0 20,15.5V5C20,1.5 16.42,1 12,1C7.58,1 4,1.5 4,5V15.5Z"/>
+          </svg>
+          Train
+        </button>
+        <button type="button" class="transport-btn" data-transport="bus">
+          <svg viewBox="0 0 24 24">
+            <path d="M18,11H6V6H18M16.5,17A1.5,1.5 0 0,1 15,15.5A1.5,1.5 0 0,1 16.5,14A1.5,1.5 0 0,1 18,15.5A1.5,1.5 0 0,1 16.5,17M7.5,17A1.5,1.5 0 0,1 6,15.5A1.5,1.5 0 0,1 7.5,14A1.5,1.5 0 0,1 9,15.5A1.5,1.5 0 0,1 7.5,17M4,16C4,16.88 4.39,17.67 5,18.22V20A1,1 0 0,0 6,21H7A1,1 0 0,0 8,20V19H16V20A1,1 0 0,0 17,21H18A1,1 0 0,0 19,20V18.22C19.61,17.67 20,16.88 20,16V6C20,2.5 16.42,2 12,2C7.58,2 4,2.5 4,6V16Z"/>
+          </svg>
+          Bus
+        </button>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="destination">Destination</label>
+          <select id="destination" name="destination" required>
+            <option value="">Select Destination</option>
+            <option value="taj-mahal">Taj Mahal, Agra</option>
+            <option value="kerala">Kerala Backwaters</option>
+            <option value="rajasthan">Rajasthan Palaces</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Travel Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="guests">Number of Guests</label>
+          <input type="number" id="guests" name="guests" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group full-width">
+          <label for="special-requests">Special Requests</label>
+          <textarea id="special-requests" name="special-requests"></textarea>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <button type="submit" class="submit-btn">Confirm Booking</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+document.querySelector('.cta-btn').addEventListener('click', () => {
+    window.location.href = 'https://travelindia.com/packages';
+});
+
+// Add smooth scrolling to all links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Intersection Observer for fade-in animation
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+});
+
+document.querySelectorAll('.destination-card').forEach((card) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.6s ease-out';
+    observer.observe(card);
+});
+
+// Booking form handling
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Collect form data
+    const formData = new FormData(this);
+    const bookingData = Object.fromEntries(formData);
+    
+    // Here you would typically send the data to your server
+    console.log('Booking submitted:', bookingData);
+    
+    // Show success message
+    alert('Thank you for your booking! We will contact you shortly to confirm your reservation.');
+    this.reset();
+});
+
+// Transport option handling
+const transportBtns = document.querySelectorAll('.transport-btn');
+transportBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        transportBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Add transport type to form data
+        const transportType = btn.getAttribute('data-transport');
+        const transportInput = document.getElementById('transport-type') || 
+            (() => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.id = 'transport-type';
+                input.name = 'transport-type';
+                document.getElementById('bookingForm').appendChild(input);
+                return input;
+            })();
+        transportInput.value = transportType;
+    });
+});
+</script>
+
+</body></html>
